@@ -38,6 +38,10 @@ let game = () => {
     for(i = 0; i < 5; i++){
         userInput = prompt('What do you choose?');
         result = playRound(userInput, getComputerChoice())
+        if(result.includes('error')){
+            console.log("An error occured. Restart.")
+            break;
+        }
         if(result.charAt(4) == 'w'){
             userScore++;
         }else if(result.charAt(4) == 'l'){
