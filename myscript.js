@@ -13,43 +13,55 @@ let getComputerChoice = () => {
 }
 
 let playRound = (playerSelection, computerSelection) => {
+    let result = document.querySelector('.results');
+    let playerScore = document.querySelector('.player_score').innerHTML;
+    playerScore = parseInt(playerScore);
+    let computerScore = document.querySelector('.computer_score').innerHTML;
+    computerScore = parseInt(computerScore);
+
     if(playerSelection.toLowerCase() == computerSelection){
-        return 'It is a draw!'
+        result.innerHTML = 'It is a draw!' 
     }else if(playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper'){
-        return 'You lose! Paper beats rock!'
+        result.innerHTML = 'You lose! Paper beats rock!'
+        computerScore++;
+        document.querySelector('.computer_score').innerHTML = computerScore;
     }else if(playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors'){
-        return 'You lose! Scissors beats paper!'
+        result.innerHTML = 'You lose! Scissors beats paper!'
+        computerScore++;
+        document.querySelector('.computer_score').innerHTML = computerScore;
     }else if(playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock'){
-        return 'You lose! Rock beats scissors!'
+        result.innerHTML = 'You lose! Rock beats scissors!'
+        computerScore++;
+        document.querySelector('.computer_score').innerHTML = computerScore;
     }else if(playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors'){
-        return 'You win! Rock beats scissors!'
+        result.innerHTML = 'You win! Rock beats scissors!'
+        playerScore++;
+        document.querySelector('.player_score').innerHTML = playerScore;
     }else if(playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper'){
-        return 'You win! Scissors beats paper!'
+        result.innerHTML = 'You win! Scissors beats paper!'
+        playerScore++;
+        document.querySelector('.player_score').innerHTML = playerScore;
     }else if(playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock'){
-        return 'You win! Paper beats rock!'
+        result.innerHTML = 'You win! Paper beats rock!' 
+        playerScore++;
+        document.querySelector('.player_score').innerHTML = playerScore;
     }else{
-        return 'There was an error that occured'
+        result.innerHTML = 'There was an error that occured'
     }
 }
 
-let game = () => {
-    let computerScore = 0;
-    let userScore = 0;
-    for(i = 0; i < 5; i++){
-        userInput = prompt('What do you choose?');
-        result = playRound(userInput, getComputerChoice())
-        if(result.includes('error')){
-            console.log("An error occured. Restart.")
-            break;
-        }
-        if(result.charAt(4) == 'w'){
-            userScore++;
-        }else if(result.charAt(4) == 'l'){
-            computerScore++;
-        }
-        console.log(result)
-        console.log(`The result is ${userScore} for you, and ${computerScore} for the computer.`)
-    }
-}
+//game()
 
-game()
+let rock = document.querySelector('.rock');
+let paper = document.querySelector('.paper');
+let scissors = document.querySelector('.scissors');
+
+rock.addEventListener('click', () => {
+    playRound('rock', getComputerChoice());
+});
+paper.addEventListener('click', () => {
+    playRound('paper', getComputerChoice());
+});
+scissors.addEventListener('click', () => {
+    playRound('scissors', getComputerChoice());
+});
