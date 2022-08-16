@@ -1,0 +1,55 @@
+html, body{
+    font-family: sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(153, 195, 208);
+    color: rgb(236, 85, 62);
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    padding: 100px;
+    background-color: beige;
+}
+
+button{
+    width: 250px;
+    height: 100px;
+    font-size: 24px;
+}
+
+.results{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 100px;
+    background-color: rgb(236, 235, 172);
+    font-size: 24px;
+}
+
+.scores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    font-size: 24px;
+    padding:100px;
+    background-color: rgb(221, 203, 237);
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    margin-top: 60px;
+}
